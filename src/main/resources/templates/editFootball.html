@@ -8,6 +8,19 @@
 <body>
 
 	<h1>Edit diary</h1>
+	<style>
+	input[type=text] {
+	display: inline-block;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	border-color:black;
+	}
+	h1 {
+	color:green;
+	}
+	
+	</style>
 	<div>
 		<form th:object="${football}" th:action="@{/save}" action="#"
 			method="post">
