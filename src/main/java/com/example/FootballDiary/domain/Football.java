@@ -13,7 +13,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Football {
-	//LUODAAN ID
+	//LUODAAN ID JA ATTRIBUUTIT
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

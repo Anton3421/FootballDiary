@@ -41,17 +41,7 @@ public class FootballController {
 		model.addAttribute("footballs", repository.findAll());
 		return "footballList";
 	}
-	//RESTful TREENILISTA
-	@GetMapping(value = "/footballs")
-	public @ResponseBody List<Football> footballListRest() {
-		return (List<Football>) repository.findAll();
-	}
-
-	//RESTful TREENI ID
-	@GetMapping(value="/football/{id}")
-	public @ResponseBody Optional<Football> findfootballRest(@PathVariable("id") Long footballId) {
-		return repository.findById(footballId);
-	}
+	
 	//LISÄTÄÄN UUSI TREENI PÄIVÄKIRJAAN
 	@GetMapping(value = "/add")
 	public String addFootball(Model model) {
@@ -76,4 +66,15 @@ public class FootballController {
 		model.addAttribute("football", repository.findById(footballId));
 		return "editFootball";
 	}
+	//RESTful TREENILISTA
+		@GetMapping(value = "/footballs")
+		public @ResponseBody List<Football> footballListRest() {
+			return (List<Football>) repository.findAll();
+		}
+
+		//RESTful TREENI ID
+		@GetMapping(value="/football/{id}")
+		public @ResponseBody Optional<Football> findfootballRest(@PathVariable("id") Long footballId) {
+			return repository.findById(footballId);
+		}
 }
