@@ -16,12 +16,12 @@ class BookstoreApplicationTests {
 
 	@Autowired
 	private FootballController controller;
-	
+
 	@Test
-	//TESTATAAN, ETTEI CONTROLLERISTA PALAUDU ARVOA NULL
+	// TESTATAAN, ETTEI CONTROLLERISTA PALAUDU ARVOA NULL
 	public void contextLoads() throws Exception {
 		assertThat(controller).isNotNull();
-		
+
 	}
 
 }

@@ -13,32 +13,30 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.example.FootballDiary.domain.Football;
 import com.example.FootballDiary.domain.FootballRepository;
 
-
-
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
-@SpringBootTest(classes = FootballDiaryApplication.class)
 public class FootballRepositoryTest {
-	
+
 	@Autowired
 	private FootballRepository repository;
-	
+
 	@Test
-	public void initialBooksAreReturned() {
-		//TESTATAAN, LÖYTYYKÖ TREENI PÄIVÄLTÄ 24.05.2023
+	public void initialFootballsAreReturned() {
+		// TESTATAAN, LÖYTYYKÖ TREENI PÄIVÄLTÄ 24.05.2023
 		List<Football> footballs = repository.findByDate("24.05.2023");
-		
-		//TESTATAAN, ONKO ENSIMMÄINEN TREENIN KUVAUS SAMA KUIN SHOOTING PRACTICE
+
+		// TESTATAAN, ONKO ENSIMMÄINEN TREENIN KUVAUS SAMA KUIN SHOOTING PRACTICE
 		assertThat(footballs).hasSize(1);
 		assertThat(footballs.get(0).getDescription()).isEqualTo("Shooting practice");
 	}
 	
-	@Test 
+
+	@Test
 	public void createNewFootball() {
-		//LUODAAN UUSI TREENI
+		// LUODAAN UUSI TREENI
 		Football football = new Football("05.06.2023", "2 h", "Endurance practice");
 		repository.save(football);
-		//TESTATAAN, ETTÄ TREENILLÄ ON ID
+		// TESTATAAN, ETTÄ TREENILLÄ ON ID
 		assertThat(football.getId()).isNotNull();
 	}
 }

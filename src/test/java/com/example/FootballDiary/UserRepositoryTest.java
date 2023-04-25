@@ -16,26 +16,26 @@ import com.example.FootballDiary.domain.UserRepository;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
-@SpringBootTest(classes = FootballDiaryApplication.class)
 public class UserRepositoryTest {
 	@Autowired
-    private UserRepository urepository;
+	private UserRepository urepository;
 
-    @Test
-    public void initialUsersAreReturned() {
-        //TESTATAAN, LÖYTYYKÖ KÄYTTÄJÄ ADMIN 
-    	List<User> users = urepository.findByRole("ADMIN");
-        //TESTATAAN, ETTÄ ENSIMMÄISEN INDEKSIN KÄYTTÄJÄ ON ADMIN
-        assertThat(users).hasSize(1);
-        assertThat(users.get(0).getUsername()).isEqualTo("admin");
-    }
-    
-    @Test
-    public void createNewStudent() {
-    	//LUODAAN UUSI KÄYTTÄJÄ
-    	User user = new User("user3", "USER3", "$2a$10$TU3qAOJjBHvMPYJeupILWe/UBLAXCGEftwMZ31l2xjwqU7KI03c/e", "user3@gmail.com");
-    	urepository.save(user);
-    	//TESTATAAN, ETTÄ KÄYTTÄJÄN ID EI OLE NULL
-    	assertThat(user.getId()).isNotNull();
-    }    
+	@Test
+	public void initialUsersAreReturned() {
+		// TESTATAAN, LÖYTYYKÖ KÄYTTÄJÄ ADMIN
+		List<User> users = urepository.findByRole("ADMIN");
+		// TESTATAAN, ETTÄ ENSIMMÄISEN INDEKSIN KÄYTTÄJÄ ON ADMIN
+		assertThat(users).hasSize(1);
+		assertThat(users.get(0).getUsername()).isEqualTo("admin");
+	}
+
+	@Test
+	public void createNewUser() {
+		// LUODAAN UUSI KÄYTTÄJÄ
+		User user = new User("user3", "USER3", "$2a$10$TU3qAOJjBHvMPYJeupILWe/UBLAXCGEftwMZ31l2xjwqU7KI03c/e",
+				"user3@gmail.com");
+		urepository.save(user);
+		// TESTATAAN, ETTÄ KÄYTTÄJÄN ID EI OLE NULL
+		assertThat(user.getId()).isNotNull();
+	}
 }

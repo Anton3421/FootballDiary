@@ -1,40 +1,30 @@
 package com.example.FootballDiary.domain;
 
-
-
-
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-
-
 @Entity
 public class Football {
-	//LUODAAN ID JA ATTRIBUUTIT
+	// LUODAAN ID JA ATTRIBUUTIT
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String date;
 	private String duration;
 	private String description;
-	
-	
-	
-	
-	public Football() {}
-	
+
+	public Football() {
+	}
+
 	public Football(String date, String duration, String description) {
 		super();
 		this.date = date;
 		this.duration = duration;
 		this.description = description;
-		
+
 	}
-	
-	
 
 	public Long getId() {
 		return id;
@@ -70,6 +60,7 @@ public class Football {
 
 	@Override
 	public String toString() {
-		return "Football [id=" + id + ", date=" + date + ", duration=" + duration + ", description=" + description + "]";
+		return "Football [id=" + id + ", date=" + date + ", duration=" + duration + ", description=" + description
+				+ "]";
 	}
 }

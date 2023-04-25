@@ -8,27 +8,26 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="usertable")
+@Table(name = "usertable")
 public class User {
-	//LUODAAN ID JA ATTRIBUUTIT
+	// LUODAAN ID
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false, updatable = false)
 	private Long id;
 
-	
 	@Column(name = "username", nullable = false, unique = true)
 	private String username;
-	
-	@Column(name="role", nullable=false)
+
+	@Column(name = "role", nullable = false)
 	private String role;
-	
-	@Column(name="password", nullable=false)
+
+	@Column(name = "password", nullable = false)
 	private String passwordHash;
 
-	@Column(name="email", nullable=false)
+	@Column(name = "email", nullable = false)
 	private String email;
-	
+
 	public User() {
 	}
 
@@ -79,5 +78,5 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 }

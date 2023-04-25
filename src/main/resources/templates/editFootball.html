@@ -3,36 +3,36 @@
 <head>
 <title>Edit</title>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
 
 	<h1>Edit diary</h1>
 	<style>
-	input[type=text] {
+input[type=text] {
 	display: inline-block;
 	border: 2px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
-	border-color:black;
-	}
-	h1 {
-	color:green;
-	}
-	
-	</style>
+	border-color: black;
+}
+
+h1 {
+	color: green;
+}
+</style>
 	<div>
 		<form th:object="${football}" th:action="@{/save}" action="#"
 			method="post">
-			<input type="hidden" th:field="*{id}" class="form-control"/>
-			<label for="date">Date</label> 
-				<input type="text" id="date" th:field="*{date}" /> <br><br>
-			<label for="duration">Duration</label> 
-				<input type="text" id="duration" th:field="*{duration}" /> <br><br>
-			<label for="description">Description</label>
-				<input type="text" id="description" th:field="*{description}" /> <br><br>
-			
-			<input type="submit" class="btn btn-success" value="Save"></input>
+			<input type="hidden" th:field="*{id}" class="form-control" /> <label
+				for="date">Date</label> <input type="text" id="date"
+				th:field="*{date}" /> <br>
+			<br> <label for="duration">Duration</label> <input type="text"
+				id="duration" th:field="*{duration}" /> <br>
+			<br> <label for="description">Description</label> <input
+				type="text" id="description" th:field="*{description}" /> <br>
+			<br> <input type="submit" class="btn btn-success" value="Save"></input>
 		</form>
 	</div>
 </body>
